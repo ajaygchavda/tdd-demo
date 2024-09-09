@@ -22,4 +22,10 @@ public class StringAdditionTest {
         int actualAddition = new StringAddition().add("1,2");
         Assertions.assertEquals(3,actualAddition);
     }
+    @Test
+    public void addNumbersWhenMoreThenTwoNumbersGiven(){
+        int actualAddition = new StringAddition().add("1,2,3,4");
+        Assertions.assertEquals(10,actualAddition);
+    }
+
 }

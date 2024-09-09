@@ -12,7 +12,7 @@ public class StringAddition {
             if(!numbers.contains(",")){
                 return Integer.parseInt(numbers);
             }
-            var numbersList = StringUtils.split(numbers, ",");
+            var numbersList = numbers.split(",");
             int digitsAddition = 0;
             for (String number : numbersList) {
                 var digit = Integer.parseInt(number);
