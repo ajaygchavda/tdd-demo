@@ -16,4 +16,10 @@ public class StringAdditionTest {
         int actualAddition = new StringAddition().add("1");
         Assertions.assertEquals(1,actualAddition);
     }
+
+    @Test
+    public void addNumbersWhenTwoNumbersGiven(){
+        int actualAddition = new StringAddition().add("1,2");
+        Assertions.assertEquals(3,actualAddition);
+    }
 }
