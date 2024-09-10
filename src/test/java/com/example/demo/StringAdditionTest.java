@@ -32,10 +32,9 @@ public class StringAdditionTest {
     }
 
     @Test
-    public void addNumbersWhenMoreThenTwoNumbersGivenAndDelimiterGetsChangedFailsWithAnException(){
-        assertThrows(NumberFormatException.class,
-                ()->
-                    new StringAddition().add("1//@2,3\n4"));
+    public void addNumbersWhenMoreThenTwoNumbersGivenAndDelimiterGetsChanged() {
+        int actualAddition = new StringAddition().add("1//@2,3\n4");
+        Assertions.assertEquals(10, actualAddition);
     }
 
 }
