@@ -3,6 +3,8 @@ package com.example.demo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public class StringAdditionTest {
 
     @Test
@@ -22,10 +24,18 @@ public class StringAdditionTest {
         int actualAddition = new StringAddition().add("1,2");
         Assertions.assertEquals(3,actualAddition);
     }
+
     @Test
     public void addNumbersWhenMoreThenTwoNumbersGiven(){
         int actualAddition = new StringAddition().add("1,2,3,4");
         Assertions.assertEquals(10,actualAddition);
+    }
+
+    @Test
+    public void addNumbersWhenMoreThenTwoNumbersGivenAndDelimiterGetsChangedFailsWithAnException(){
+        assertThrows(NumberFormatException.class,
+                ()->
+                    new StringAddition().add("1//@2,3\n4"));
     }
 
 }
