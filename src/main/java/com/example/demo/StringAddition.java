@@ -7,12 +7,6 @@ import java.util.regex.Pattern;
 
 public class StringAddition {
     public int add(String numbers) {
-        if (Objects.isNull(numbers) || numbers.isEmpty()) {
-            return 0;
-        } else {
-            if(!numbers.contains(",") && numbers.length() == 1){
-                return Integer.parseInt(numbers);
-            }
             var numbersList = getExtractedNumbers(numbers);
             var digitsAddition = 0;
             for (String number : numbersList) {
@@ -20,7 +14,6 @@ public class StringAddition {
                 digitsAddition += digit;
             }
             return digitsAddition;
-        }
     }
 
     private List<String> getExtractedNumbers(String numbers){
