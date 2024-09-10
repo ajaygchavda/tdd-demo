@@ -47,4 +47,16 @@ public class StringAdditionTest {
         Assertions.assertEquals("negative numbers not allowed -2", negativeNumberFormatException.getMessage());
     }
 
+    @Test
+    public void addNumbersWhenMoreThenTwoNumbersGivenAndMultipleDelimiters() {
+        int actualAddition = new StringAddition().add("1//@##$#%%2,3\n4");
+        Assertions.assertEquals(10, actualAddition);
+    }
+
+    @Test
+    public void addNumbersWhenMoreThenTwoNumbersGivenAlongWithMoreThen1000Number() {
+        int actualAddition = new StringAddition().add("1//@2,3\n1002");
+        Assertions.assertEquals(6, actualAddition);
+    }
+
 }

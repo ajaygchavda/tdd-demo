@@ -8,27 +8,28 @@ public class StringAddition {
     public int add(String numbers) {
             var numbersList = getExtractedNumbers(numbers);
             var digitsAddition = 0;
-            for (String number : numbersList) {
-                var digit = Integer.parseInt(number);
-                digitsAddition += digit;
+            for (int number : numbersList) {
+                digitsAddition += number;
             }
             return digitsAddition;
     }
 
-    private List<String> getExtractedNumbers(String numbers){
+    private List<Integer> getExtractedNumbers(String numbers){
         var pattern = Pattern.compile("//[/W_]+|-\\d|\\d+");
         var matcher = pattern.matcher(numbers);
-        List<String> numbersArray = new ArrayList<>();
+        List<Integer> numbersArray = new ArrayList<>();
         while(matcher.find()){
-            var number = matcher.group();
+            var number = Integer.parseInt(matcher.group());
             checkIfNegativeNumber(number);
-            numbersArray.add(number);
+            if(number<=1000) {
+                numbersArray.add(number);
+            }
         }
         return numbersArray;
     }
 
-    private static void checkIfNegativeNumber(String number) {
-        if(Integer.signum(Integer.parseInt(number)) == -1){
+    private static void checkIfNegativeNumber(int number) {
+        if(Integer.signum(number) == -1){
             throw new NegativeNumberFormatException("negative numbers not allowed "+number);
         }
     }
