@@ -3,6 +3,8 @@ package com.example.demo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public class StringAdditionTest {
 
     @Test
@@ -33,6 +35,16 @@ public class StringAdditionTest {
     public void addNumbersWhenMoreThenTwoNumbersGivenAndDelimiterGetsChanged() {
         int actualAddition = new StringAddition().add("1//@2,3\n4");
         Assertions.assertEquals(10, actualAddition);
+    }
+
+    @Test
+    public void addNumbersWhenMoreThenTwoNumbersGivenAndDelimiterGetsChangedAndNegativeNumbersGiven() {
+        Throwable negativeNumberFormatException = assertThrows(NegativeNumberFormatException.class,
+                ()->
+                        new StringAddition().add("1//@-2,-3\n-4")
+                );
+        Assertions.assertEquals(NegativeNumberFormatException.class, negativeNumberFormatException.getClass());
+        Assertions.assertEquals("negative numbers not allowed -2", negativeNumberFormatException.getMessage());
     }
 
 }
