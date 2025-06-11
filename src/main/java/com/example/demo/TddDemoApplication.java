@@ -7,10 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TddDemoApplication {
 
 	public static void main(String[] args) {
-
-		SpringApplication.run(TddDemoApplication.class, args);
-
-
+		new StringAddition().add("10,23,34");
+		//SpringApplication.run(TddDemoApplication.class, args);
 	}
 
 }
